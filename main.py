@@ -161,7 +161,7 @@ class Requisitos(MDScreen):
 class Main(MDApp):
     def build(self):
         Builder.load_string(kv_string)
-        self.theme_cls.theme_style="White"
+        self.theme_cls.theme_style="Light"
         self.theme_cls.primary_palette = "Orange"
         self.title='Tanque cheio'
         sm = MDScreenManager()
