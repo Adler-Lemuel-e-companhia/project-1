@@ -103,7 +103,7 @@ kv_string='''<Inicio>:
         halign: 'center'
         pos_hint: {'center_x': 0.5, 'center_y': 0.1}
 <Historico>:
-    name: 'histórico'
+    name: 'historico'
     MDTopAppBar:
         title: "[u][i]<< Apagar histórico[/i][/u]"
         anchor_title: "left"
