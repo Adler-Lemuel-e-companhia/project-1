@@ -57,6 +57,8 @@ kv_string='''<Inicio>:
     MDTextField:
         id: comb
         multiline: False
+        input_type: 'number'
+        input_filter: 'float'
         size_hint_x: .8
         pos_hint: {'center_x': 0.5,'center_y': 0.73}
         hint_text: "Quantidade de reais em combustível"
@@ -64,6 +66,8 @@ kv_string='''<Inicio>:
     MDTextField:
         id: preco
         multiline: False
+        input_type: 'number'
+        input_filter: 'float'
         size_hint_x: .8
         pos_hint: {'center_x': 0.5,'center_y': 0.62}
         hint_text: "Preço do combustível"
@@ -71,6 +75,8 @@ kv_string='''<Inicio>:
     MDTextField:
         id: km
         multiline: False
+        input_type: 'number'
+        input_filter: 'float'
         size_hint_x: .8
         pos_hint: {'center_x': 0.5,'center_y': 0.51}
         hint_text: "Quilômetros rodados"
@@ -97,7 +103,7 @@ kv_string='''<Inicio>:
         halign: 'center'
         pos_hint: {'center_x': 0.5, 'center_y': 0.1}
 <Historico>:
-    name: 'historico'
+    name: 'histórico'
     MDTopAppBar:
         title: "[u][i]<< Apagar histórico[/i][/u]"
         anchor_title: "left"
