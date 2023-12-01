@@ -4,12 +4,15 @@ from kivymd.uix.screenmanager import MDScreenManager
 from kivymd.uix.screen import MDScreen
 from kivy.lang import Builder
 from kivymd.uix.snackbar import Snackbar
+from datetime import date
+
+data = date.today()
 
 conn = sqlite3.connect('app.db')
 cursor = conn.cursor()
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS dados(
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        data varchar(10),
         preco REAL,
         comb REAL,
         km REAL,
