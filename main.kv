@@ -1,0 +1,142 @@
+
+<Inicio>:
+    name:'inicio'
+    FloatLayout:
+        MDTopAppBar:
+            title: "[u][i]Tanque Cheio[/i][/u]"
+            pos_hint: {'center_x': 0.5,'center_y': 0.95}
+            elevation: 5
+            right_action_items: [['exit-to-app', lambda x: app.stop()]]
+            left_action_items: [['android']]
+
+        Image:
+            source:'logo.png'
+            size_hint: None, None
+            size: '200dp','200dp'
+            pos_hint:{'center_x': 0.5, 'center_y': 0.67}
+        MDRaisedButton:
+            text: 'Verificação de consumo médio'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.45}
+            on_release: root.manager.current = 'requisitos'
+        MDRaisedButton:
+            text: 'Autonomia(Quilometragem restante)'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.34}
+            on_release: root.manager.current = 'autonomia'
+        MDRaisedButton:
+            text: 'Planejador de viagem'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.23}
+            on_release: root.manager.current = 'viagem'
+        MDFloatingActionButton:
+            icon: "information-variant"
+            pos_hint: {'center_x': 0.085,'center_y': 0.06}
+            on_release: app.aviso()
+            md_bg_color: app.theme_cls.primary_color
+<Requisitos>:
+    name:'requisitos'
+    MDTopAppBar:
+        title: "[u][i]Insira os dados[/i][/u]"
+        anchor_title: "left"
+        left_action_items: [["keyboard-backspace", lambda x: root.voltar_r()]]
+        right_action_items:
+            [["history", lambda x: root.mostrar_historico()],
+            ['exit-to-app', lambda x: app.stop()]]
+        pos_hint: {'center_x': 0.5, 'center_y': 0.95}
+    MDTextField:
+        id: nome
+        multiline: False
+        size_hint_x: .8
+        pos_hint: {'center_x': 0.5,'center_y': 0.84}
+        hint_text: "Nome do motorista"
+        mode: "fill"
+    MDTextField:
+        id: placa
+        multiline: False
+        size_hint_x: .8
+        pos_hint: {'center_x': 0.5,'center_y': 0.73}
+        hint_text: "Placa do veículo"
+        mode: "fill"
+    MDTextField:
+        id: modelo
+        multiline: False
+        size_hint_x: .8
+        pos_hint: {'center_x': 0.5,'center_y': 0.62}
+        hint_text: "Modelo do veículo"
+        mode: "fill"
+    MDTextField:
+        id: lconsumo
+        multiline: False
+        size_hint_x: .8
+        pos_hint: {'center_x': 0.5,'center_y': 0.51}
+        hint_text: "Litros consumidos"
+        mode: "fill"
+    MDTextField:
+        id: km
+        multiline: False
+        size_hint_x: .8
+        pos_hint: {'center_x': 0.5,'center_y': 0.40}
+        hint_text: "Quilometragem percorrida"
+        mode: "fill"
+    MDFillRoundFlatButton:
+        pos_hint: {'center_x': 0.35,'center_y': 0.25}
+        text: "Calcular"
+        on_press: root.calcular()
+    MDFillRoundFlatButton:
+        pos_hint: {'center_x': 0.65,'center_y': 0.25}
+        text: "Limpar"
+        on_press: root.limpar()
+    MDLabel:
+        id: resposta
+        text: ''
+        font_size:
+        halign: 'center'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+<Historico>:
+    name: 'historico'
+    MDTopAppBar:
+        title: "[u][i]Histórico[/i][/u]"
+        anchor_title: "center"
+        right_action_items: [['trash-can-outline', lambda x: root.apagar_confirmacao()]]
+        left_action_items: [["keyboard-backspace", lambda x: root.voltar_inicio()]]
+        pos_hint: {'center_x': 0.5, 'center_y': 0.95}
+    MDLabel:
+        id: historico_label
+        text: ''
+        font_size: sp(20)
+        halign: 'center'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+<Autonomia>:
+    name: 'autonomia'
+    MDTopAppBar:
+        title: "[u][i]Insira os dados[/i][/u]"
+        anchor_title: "left"
+        left_action_items: [["keyboard-backspace", lambda x: root.voltar_r()]]
+        pos_hint: {'center_x': 0.5, 'center_y': 0.95}
+
+    MDTextField:
+        id: reais
+        multiline: False
+        size_hint_x: .8
+        pos_hint: {'center_x': 0.5,'center_y': 0.73}
+        hint_text: "Reais gastos no abastecimento"
+        mode: "fill"
+    MDTextField:
+        id: plitro
+        multiline: False
+        size_hint_x: .8
+        pos_hint: {'center_x': 0.5,'center_y': 0.62}
+        hint_text: "Preço por litro"
+        mode: "fill"
+    MDTextField:
+        id: amodelo
+        multiline: False
+        size_hint_x: .8
+        pos_hint: {'center_x': 0.5,'center_y': 0.51}
+        hint_text: "Modelo do veículo"
+        mode: "fill"
+<Viagem>:
+    name: 'viagem'
+    MDTopAppBar:
+        title: "[u][i]Insira os dados[/i][/u]"
+        anchor_title: "left"
+        left_action_items: [["keyboard-backspace", lambda x: root.voltar_r()]]
+        pos_hint: {'center_x': 0.5, 'center_y': 0.95}
