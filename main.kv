@@ -1,4 +1,3 @@
-
 <Inicio>:
     name:'inicio'
     FloatLayout:
@@ -17,15 +16,21 @@
         MDRaisedButton:
             text: 'Verificação de consumo médio'
             pos_hint: {'center_x': 0.5, 'center_y': 0.45}
-            on_release: root.manager.current = 'requisitos'
+            on_release:
+                root.manager.current = 'requisitos'
+                root.manager.transition.direction = 'right'
         MDRaisedButton:
             text: 'Autonomia(Quilometragem restante)'
             pos_hint: {'center_x': 0.5, 'center_y': 0.34}
-            on_release: root.manager.current = 'autonomia'
+            on_release:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'autonomia'
         MDRaisedButton:
             text: 'Planejador de viagem'
             pos_hint: {'center_x': 0.5, 'center_y': 0.23}
-            on_release: root.manager.current = 'viagem'
+            on_release:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'viagem'
         MDFloatingActionButton:
             icon: "information-variant"
             pos_hint: {'center_x': 0.085,'center_y': 0.06}
@@ -111,7 +116,6 @@
         anchor_title: "left"
         left_action_items: [["keyboard-backspace", lambda x: root.voltar_r()]]
         pos_hint: {'center_x': 0.5, 'center_y': 0.95}
-
     MDTextField:
         id: reais
         multiline: False
