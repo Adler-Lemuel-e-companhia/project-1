@@ -109,38 +109,3 @@
         font_size: sp(20)
         halign: 'center'
         pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-<Autonomia>:
-    name: 'autonomia'
-    MDTopAppBar:
-        title: "[u][i]Insira os dados[/i][/u]"
-        anchor_title: "left"
-        left_action_items: [["keyboard-backspace", lambda x: root.voltar_r()]]
-        pos_hint: {'center_x': 0.5, 'center_y': 0.95}
-    MDTextField:
-        id: reais
-        multiline: False
-        size_hint_x: .8
-        pos_hint: {'center_x': 0.5,'center_y': 0.73}
-        hint_text: "Reais gastos no abastecimento"
-        mode: "fill"
-    MDTextField:
-        id: plitro
-        multiline: False
-        size_hint_x: .8
-        pos_hint: {'center_x': 0.5,'center_y': 0.62}
-        hint_text: "Preço por litro"
-        mode: "fill"
-    MDTextField:
-        id: amodelo
-        multiline: False
-        size_hint_x: .8
-        pos_hint: {'center_x': 0.5,'center_y': 0.51}
-        hint_text: "Modelo do veículo"
-        mode: "fill"
-<Viagem>:
-    name: 'viagem'
-    MDTopAppBar:
-        title: "[u][i]Insira os dados[/i][/u]"
-        anchor_title: "left"
-        left_action_items: [["keyboard-backspace", lambda x: root.voltar_r()]]
-        pos_hint: {'center_x': 0.5, 'center_y': 0.95}
