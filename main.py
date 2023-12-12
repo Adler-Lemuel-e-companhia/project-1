@@ -4,7 +4,6 @@ from kivymd.app import MDApp
 from kivymd.uix.screenmanager import MDScreenManager
 from kivymd.uix.screen import MDScreen
 from kivy.lang import Builder
-from kivy.core.window import Window
 from kivymd.uix.snackbar import Snackbar
 from kivymd.uix.button import MDRaisedButton, MDFlatButton
 from kivy.uix.boxlayout import BoxLayout
@@ -93,19 +92,12 @@ class Requisitos(MDScreen):
         self.ids.lconsumo.text = ''
         self.ids.km.text = ''
         self.ids.resposta.text = ''
-class Autonomia(MDScreen):
-    def voltar_r(self):
-        self.manager.current = 'inicio'
-        self.manager.transition.direction = 'left'
-class Viagem(MDScreen):
-    def voltar_r(self):
-        self.manager.current = 'inicio'
         self.manager.transition.direction = 'left'
 
 class Main(MDApp):
     dialog = None
     def build(self):
-        Window.size=(360, 640)
+
         Builder.load_file('main.kv')
         self.theme_cls.theme_style="Dark"
         self.theme_cls.primary_palette = "Orange"
@@ -114,14 +106,11 @@ class Main(MDApp):
         sm.add_widget(Inicio())
         sm.add_widget(Requisitos())
         sm.add_widget(Historico())
-        sm.add_widget(Autonomia())
-        sm.add_widget(Viagem())
-        return sm
     def aviso(self):
         if not self.dialog:
             self.dialog = MDDialog(
                 title="Sobre nós",
-                text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", #EDITAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+                text="Nosso app de cálculo de média de combustível foi criado por alunos do 2º ano D da ECIT Alice Carneiro. Unindo nossos conhecimentos em programação, desenvolvemos essa ferramenta eficiente para simplificar o controle do consumo de combustível. Explore a praticidade da nossa aplicação!",
                 auto_dismiss=True,
                 buttons=[
                     MDFlatButton(
