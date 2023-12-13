@@ -19,18 +19,6 @@
             on_release:
                 root.manager.current = 'requisitos'
                 root.manager.transition.direction = 'right'
-        MDRaisedButton:
-            text: 'Autonomia(Quilometragem restante)'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.34}
-            on_release:
-                root.manager.transition.direction = 'right'
-                root.manager.current = 'autonomia'
-        MDRaisedButton:
-            text: 'Planejador de viagem'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.23}
-            on_release:
-                root.manager.transition.direction = 'right'
-                root.manager.current = 'viagem'
         MDFloatingActionButton:
             icon: "information-variant"
             pos_hint: {'center_x': 0.085,'center_y': 0.06}
@@ -70,6 +58,7 @@
     MDTextField:
         id: lconsumo
         multiline: False
+        input_type: 'number'
         size_hint_x: .8
         pos_hint: {'center_x': 0.5,'center_y': 0.51}
         hint_text: "Litros consumidos"
@@ -77,6 +66,7 @@
     MDTextField:
         id: km
         multiline: False
+        input_type: 'number'
         size_hint_x: .8
         pos_hint: {'center_x': 0.5,'center_y': 0.40}
         hint_text: "Quilometragem percorrida"
@@ -97,15 +87,20 @@
         pos_hint: {'center_x': 0.5, 'center_y': 0.1}
 <Historico>:
     name: 'historico'
+    
+    ScrollView:
+        MDLabel:
+            id: historico_label
+            text: ''
+            font_size: sp(20)
+            halign: 'center'
+            size_hint_y: None
+            height: self.texture_size[1]
+            width: self.texture_size[1]
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
     MDTopAppBar:
         title: "[u][i]Histórico[/i][/u]"
         anchor_title: "center"
         right_action_items: [['trash-can-outline', lambda x: root.apagar_confirmacao()]]
         left_action_items: [["keyboard-backspace", lambda x: root.voltar_inicio()]]
         pos_hint: {'center_x': 0.5, 'center_y': 0.95}
-    MDLabel:
-        id: historico_label
-        text: ''
-        font_size: sp(20)
-        halign: 'center'
-        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
