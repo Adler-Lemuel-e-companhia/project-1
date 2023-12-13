@@ -50,14 +50,23 @@ class Historico(MDScreen):
         self.temporario()
         dialog.dismiss()
     def temporario(self):
-        self.snackbar = Snackbar(text="Histórico apagado com sucesso")
+        self.snackbar = Snackbar()
+        self.snackbar.text = "Histórico apagado com sucesso"
         self.snackbar.open()
     def on_enter(self):
         cursor.execute('SELECT * FROM dados')
         data = cursor.fetchall()
         history_text = ""
         for entry in data:
-            history_text += f"ID: {entry[0]}, Nome: {entry[1]}, Placa:{entry[2]}, Modelo:{entry[3]}, L/Consumidos:{entry[4]}, KM/Percorridos:{entry[5]}, Resultado:{round(entry[6], 2)}\n"
+            history_text += f'''
+            ID: {entry[0]}
+            Nome: {entry[1]}
+            Placa: {entry[2]}
+            Modelo: {entry[3]}
+            L/Consumidos: {entry[4]}
+            KM/Percorridos: {entry[5]}
+            Resultado: {round(entry[6], 2)}\n
+            '''
         self.ids.historico_label.text = history_text
 class Inicio(MDScreen):
     pass
@@ -106,6 +115,7 @@ class Main(MDApp):
         sm.add_widget(Inicio())
         sm.add_widget(Requisitos())
         sm.add_widget(Historico())
+        return sm
     def aviso(self):
         if not self.dialog:
             self.dialog = MDDialog(
